@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AboutMe from "../components/AboutMe";
+---
+
+<Layout title="about | expctr official website">
+    <div class="header">
+        <h1><a href="/"><img src="/img/logo.png" alt="" /></a></h1>
+    </div>
+    <AboutMe client:only="react" />
+    <div class="contact" id="contact">
+        <h2>Contact:</h2>
+        <div class="contact__wrapper">
+            <a href="mailto:expctrtokyo@gmail.com">expctrtokyo@gmail.com</a>
+        </div>
+        <div class="sns__wrapper">
+            <ul>
+                <li>
+                    <a href="http://instagram.com/expctr" target="_blank"
+                        >Instagram</a
+                    >
+                </li>
+                <li>
+                    <a href="http://twitter.com/expctr__" target="_blank">X</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@EXPCTR" target="_blank"
+                        >Youtube</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </div>
+</Layout>
+
+<style lang="scss">
+    .contact {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 0 80px;
+        .contact__wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 1.2em;
+                font-weight: 100;
+                text-align: center;
+            }
+        }
+        .sns__wrapper {
+            ul {
+                display: flex;
+                list-style: none;
+                gap: 10px;
+                justify-content: space-around;
+                padding-inline-start: 0px;
+                margin-top: 40px;
+                color: #fff;
+                li {
+                    a {
+                        color: #fff;
+                        text-decoration: none;
+                        font-size: 1em;
+                        font-weight: 100;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+</style>
