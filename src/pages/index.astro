@@ -1,6 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Main from "../components/Main";
+
+const videos = [
+	{
+		url: "https://www.youtube.com/embed/yuFCkqAJOfA?si=UWettKtT8dBtWDZW",
+	},
+	{
+		url: "https://www.youtube.com/embed/q6qA1ny8cHw?si=YcDDw_x3gSFylEYJ",
+	},
+	{
+		url: "https://www.youtube.com/embed/-UzlWgpNVRY?si=lUiQyv2vj2-0g9e6",
+	},
+	{ url: "https://www.youtube.com/embed/c6s1kMBTYQ0?si=2D3RWCP_6-A5l17S" },
+	{
+		url: "https://www.youtube.com/embed/ZyEUFDXsJNk?si=1pZ-mB0EuqzEaq_0",
+	},
+	{
+		url: "https://www.youtube.com/embed/aJddG7aVwbY?si=kKX7yRtEmuM7FD6J",
+	},
+];
+
+const merches = [
+	{ url: "https://expctr.base.shop/items/81366766" },
+	{
+		url: "https://expctr.base.shop/items/81366766/widget",
+	},
+	{ url: "https://expctr.base.shop/items/81366576/widget" },
+	{ url: "https://expctr.base.shop/items/79215817/widget" },
+];
 ---
 
 <Layout title="expctr official website">
@@ -11,106 +39,178 @@ import Main from "../components/Main";
 	<div class="video" id="video">
 		<h2>Video:</h2>
 		<div class="video__wrapper">
-			<iframe
-				width="560"
-				height="315"
-				src="https://www.youtube.com/embed/q6qA1ny8cHw?si=YcDDw_x3gSFylEYJ"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				referrerpolicy="strict-origin-when-cross-origin"
-				allowfullscreen></iframe>
-		</div>
-	</div>
-	<div class="live" id="live">
-		<h2>Live:</h2>
-		<div class="live__wrapper">
-			<ul>
-				<li>to be announced...</li>
-			</ul>
-		</div>
-	</div>
-	<div class="contact" id="contact">
-		<h2>Contact:</h2>
-		<div class="contact__wrapper">
-			<a href="mailto:expctrtokyo@gmail.com">expctrtokyo@gmail.com</a>
-		</div>
-		<div class="sns__wrapper">
-			<ul>
-				<li>
-					<a href="http://instagram.com/expctr" target="_blank"
-						>Instagram</a
-					>
-				</li>
-				<li>
-					<a href="http://twitter.com/expctr__" target="_blank">X</a>
-				</li>
-				<li>
-					<a href="https://www.youtube.com/@EXPCTR" target="_blank"
-						>Youtube</a
-					>
-				</li>
-			</ul>
-		</div>
-	</div>
-</Layout>
-
-<style lang="scss">
-	.video {
-		width: 90%;
-		margin: 0 auto;
-		padding: 0 0 80px;
-		color: #fff;
-		.video__wrapper {
-			display: flex;
-			justify-content: center;
-			width: 100%;
-		}
-	}
-	.live {
-		width: 90%;
-		margin: 0 auto;
-		padding: 0 0 80px;
-		color: #fff;
-		.live__wrapper {
-			display: flex;
-			justify-content: center;
-			width: 100%;
-		}
-	}
-	.contact {
-		width: 90%;
-		margin: 0 auto;
-		padding: 0 0 80px;
-		.contact__wrapper {
-			display: flex;
-			justify-content: center;
-			width: 100%;
-			a {
-				color: #fff;
-				text-decoration: none;
-				font-size: 1.2em;
-				font-weight: 100;
-				text-align: center;
+			{
+				videos.map((video) => (
+					<div class="video-item">
+						<iframe
+							src={video.url}
+							title="YouTube video player"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
+							allowfullscreen
+						/>
+					</div>
+				))
 			}
-		}
-		.sns__wrapper {
-			ul {
+		</div>
+		<div class="merch" id="merce">
+			<h2>Merch:</h2>
+			<div class="merch_wrapper">
+				<ul>
+					{
+						merches.map((merch) => (
+							<li>
+								<iframe
+									frameborder="0"
+									height="380"
+									width="220"
+									src={merch.url}
+								/>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+		<div class="live" id="live">
+			<h2>Live:</h2>
+			<div class="live__wrapper">
+				<ul>
+					<li>To BE Announced...</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contact" id="contact">
+			<h2>Contact:</h2>
+			<div class="contact__wrapper">
+				<a href="mailto:expctrtokyo@gmail.com">expctrtokyo@gmail.com</a>
+			</div>
+			<div class="sns__wrapper">
+				<ul>
+					<li>
+						<a href="http://instagram.com/expctr" target="_blank"
+							>Instagram</a
+						>
+					</li>
+					<li>
+						<a href="http://twitter.com/expctr__" target="_blank"
+							>X</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://www.youtube.com/@EXPCTR"
+							target="_blank">Youtube</a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<style lang="scss">
+		.video {
+			width: 90%;
+			margin: 0 auto;
+			padding: 0 0 80px;
+			color: #fff;
+			.video__wrapper {
 				display: flex;
-				list-style: none;
-				gap: 10px;
-				justify-content: space-around;
-				padding-inline-start: 0px;
-				margin-top: 40px;
-				color: #fff;
-				li {
-					a {
-						color: #fff;
-						text-decoration: none;
-						font-size: 1em;
-						font-weight: 100;
-						text-align: center;
+				justify-content: center;
+				flex-wrap: wrap;
+				width: 100%;
+				@media (max-width: 768px) {
+					flex-direction: column;
+				}
+				.video-item {
+					width: 33%;
+					@media (max-width: 768px) {
+						width: 100%;
+					}
+					iframe {
+						width: 100%;
+						aspect-ratio: 16 / 9;
 					}
 				}
 			}
 		}
-	}
-</style>
+
+		.merch {
+			width: 90%;
+			margin: 0 auto;
+			padding: 0 0 80px;
+			color: #fff;
+			.merch_wrapper {
+				ul {
+					display: flex;
+					justify-content: center;
+					flex-wrap: wrap;
+					width: 100%;
+					list-style: none;
+					gap: 10px;
+					@media (max-width: 768px) {
+						flex-direction: column;
+					}
+					li {
+						width: 24%;
+						@media (max-width: 768px) {
+							width: 100%;
+						}
+						iframe {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+		.live {
+			width: 90%;
+			margin: 0 auto;
+			padding: 0 0 80px;
+			color: #fff;
+			.live__wrapper {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+			}
+		}
+		.contact {
+			width: 90%;
+			margin: 0 auto;
+			padding: 0 0 80px;
+			.contact__wrapper {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				a {
+					color: #fff;
+					text-decoration: none;
+					font-size: 1.2em;
+					font-weight: 100;
+					text-align: center;
+				}
+			}
+			.sns__wrapper {
+				ul {
+					display: flex;
+					list-style: none;
+					gap: 10px;
+					justify-content: space-around;
+					padding-inline-start: 0px;
+					margin-top: 40px;
+					color: #fff;
+					li {
+						a {
+							color: #fff;
+							text-decoration: none;
+							font-size: 1em;
+							font-weight: 100;
+							text-align: center;
+						}
+					}
+				}
+			}
+		}
+	</style>
+</Layout>
