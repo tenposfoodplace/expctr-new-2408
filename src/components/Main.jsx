@@ -72,7 +72,7 @@ export default function Main() {
                             EXPCTR
                         </p>
                         <p className="txt" style={{ position: 'absolute', top: isMobile ? '32vh' : '30vh', left: isMobile ? '8.1em' : '32em' }}>
-                            new realese "Undress" out now.
+                            new realese "Secret Moment" out on Jan 1st 2025.
                         </p>
                         <h2 style={{ position: 'absolute', top: isMobile ? '100vh' : '100vh', left: isMobile ? '0.3em' : '1em' }}>works: </h2>
                     </Scroll>
