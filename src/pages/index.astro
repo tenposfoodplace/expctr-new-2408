@@ -28,6 +28,16 @@ const merches = [
 	{ url: "https://expctr.base.shop/items/81366576/widget" },
 	{ url: "https://expctr.base.shop/items/79215817/widget" },
 ];
+
+const live = [
+	{
+		date: "01/17/2025(fri)",
+		place: "新代田crossing",
+		img: "/img/live/20250117.jpg",
+		ttl: "「c.a.m.p」",
+		txt: `2025.01.17(fri) 新代田crossing<br>「c.a.m.p」<br><br>act : EXPCTR / anzu / AATA<br><br>open 19:00 / start 19:30ticket : 3,000yen+1Drink<br><br>【ご予約方法】<br>下記TIGET、各アーティスト取り置きにて。<br><a href="https://tiget.net/events/367399" target="_blank">https://tiget.net/events/367399</a>`,
+	},
+];
 ---
 
 <Layout title="expctr official website">
@@ -75,8 +85,19 @@ const merches = [
 		<div class="live" id="live">
 			<h2>Live:</h2>
 			<div class="live__wrapper">
-				<ul>
-					<li>To BE Announced...</li>
+				<ul class="live-list">
+					{
+						live.map((el) => (
+							<li class="live-item">
+								<div set:html={el.date} class="date" />
+								<div set:html={el.ttl} class="ttl" />
+								<div>
+									<img src={el.img} alt="" class="img" />
+								</div>
+								<div set:html={el.txt} class="txt" />
+							</li>
+						))
+					}
 				</ul>
 			</div>
 		</div>
@@ -172,6 +193,32 @@ const merches = [
 				display: flex;
 				justify-content: center;
 				width: 100%;
+				ul.live-list {
+					display: flex;
+					list-style: none;
+					flex-wrap: wrap;
+					li.live-item {
+						width: 25%;
+						@media (max-width: 768px) {
+							width: 100%;
+						}
+						div.date {
+						}
+						div.ttl {
+							font-size: 18px;
+							font-weight: bold;
+						}
+						div {
+							margin-bottom: 20px;
+							img.img {
+								width: 100%;
+							}
+						}
+						div.txt {
+							font-size: 16px;
+						}
+					}
+				}
 			}
 		}
 		.contact {

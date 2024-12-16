@@ -28,6 +28,7 @@ function Images() {
     const data = useScroll();
     const group = useRef();
     const isMobile = window.innerWidth < 768;
+    const imgList = ["/img/sm-cover.png", "/img/undress-cover.png", "/img/d3-cover.png", "/img/d2-cover.jpg", "/img/d1-cover.png", "/img/bb-cover.jpg"]
     useFrame(() => {
         group.current.children[0].material.zoom = 1 + (0.5 - data.range(1, 1 / 3)) / 3;
         group.current.children[1].material.zoom = 1 - data.range(1.15 / 3, 1 / 3) / 3;
@@ -39,11 +40,13 @@ function Images() {
     return (
         <group ref={group}>
             <Image position={[isMobile ? -1.4 : -2, 0, 0]} scale={[isMobile ? 3.5 : 4, isMobile ? height / 1.3 : height, 1]} url="/img/headshot.png" link={'/about'} />
-            <Image position={[isMobile ? 0.1 : 1, -height / 4, isMobile ? 3.3 : 3]} scale={isMobile ? 1.2 : 1.4} url="/img/undress-cover.png" link={'https://friendship.lnk.to/undress'} />
-            <Image position={[isMobile ? 0.1 : 1.3, -height / 1.5, isMobile ? 3.3 : 2.8]} scale={isMobile ? 1.4 : 1.8} url="/img/d3-cover.png" link={'https://friendship.lnk.to/DISPLAY_THREE'} />
-            <Image position={[isMobile ? -0.1 : -1.5, isMobile ? -height / 1.1 : -height / 1.2, isMobile ? 3.3 : 2.6]} scale={isMobile ? 1.2 : 1.4} url="/img/d2-cover.jpg" link={'https://friendship.lnk.to/DISPLAY_TWO'} />
-            <Image position={[isMobile ? 0.1 : 0.8, isMobile ? -height / 0.9 : -height / 1, isMobile ? 3.3 : 2.8]} scale={1.4} url="/img/d1-cover.png" link={'https://open.spotify.com/intl-ja/album/5sE4GGk3lYdOq8U4VIT9Os?si=3WcwSDRbQXau9cNhLbP_Zg'} />
-            <Image position={[isMobile ? -0.1 : -1, isMobile ? -height / 0.75 : -height / 0.9, isMobile ? 3 : 3]} scale={isMobile ? 1.3 : 1.4} url="/img/bb-cover.jpg" link={'https://open.spotify.com/intl-ja/album/3f4pAZZTsBehwuYrAO6G9g?si=Ff0ZTsVfQmeYpRvw_wKVlg'} />
+            <Image position={[isMobile ? 0.1 : 1, -height / 4, isMobile ? 3.3 : 3]} scale={isMobile ? 1.2 : 1.4} url={imgList[0]} link={'https://friendship.lnk.to/SecretMoment_EXPCTR'} />
+            <Image position={[isMobile ? 0.1 : 1.3, -height / 1.5, isMobile ? 3.3 : 2.8]} scale={isMobile ? 1.4 : 1.8} url={imgList[1]} link={'https://friendship.lnk.to/DISPLAY_THREE'} />
+            <Image position={[isMobile ? -0.1 : -1.5, isMobile ? -height / 1.1 : -height / 1.2, isMobile ? 3.3 : 2.6]} scale={isMobile ? 1.2 : 1.4} url={imgList[2]} link={'https://friendship.lnk.to/DISPLAY_TWO'} />
+            <Image position={[isMobile ? 0.1 : 0.8, isMobile ? -height / 0.9 : -height / 1, isMobile ? 3.3 : 2.8]} scale={1.4} url={imgList[3]} link={'https://open.spotify.com/intl-ja/album/5sE4GGk3lYdOq8U4VIT9Os?si=3WcwSDRbQXau9cNhLbP_Zg'} />
+            <Image position={[isMobile ? -0.1 : -1, isMobile ? -height / 0.75 : -height / 0.9, isMobile ? 3 : 3]} scale={isMobile ? 1.3 : 1.4} url={imgList[4]} link={'https://open.spotify.com/intl-ja/album/3f4pAZZTsBehwuYrAO6G9g?si=Ff0ZTsVfQmeYpRvw_wKVlg'} />
+            <Image position={[isMobile ? 0.1 : 1.3, isMobile ? -height / 0.66 : -height / 0.6, isMobile ? 3.3 : 2.8]} scale={isMobile ? 1.1 : 1.4} url={imgList[5]} link={'https://open.spotify.com/intl-ja/album/5sE4GGk3lYdOq8U4VIT9Os?si=3WcwSDRbQXau9cNhLbP_Zg'} />
+
         </group>
     )
 }
