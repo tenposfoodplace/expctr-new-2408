@@ -9,6 +9,7 @@ import "@fontsource-variable/inter";
 import { ViewTransitions } from "astro:transitions";
 import { slide } from "astro:transitions";
 import { SEO } from "astro-seo";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 ---
 
 <!doctype html>
@@ -65,7 +66,7 @@ import { SEO } from "astro-seo";
 				],
 			}}
 		/>
-
+		<link rel="stylesheet" href="/css/reset.css" />
 		<ViewTransitions />
 	</head>
 	<body transition:animate={slide({ duration: "1s" })}>
@@ -111,26 +112,27 @@ import { SEO } from "astro-seo";
 	ul {
 		padding-inline-start: 0px;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	a {
+		color: #fff;
+		text-decoration: none;
 	}
-
 	h2 {
-		font-size: 6em;
+		font-size: 40px;
 		text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1);
 		font-weight: 100;
 		color: #fff;
 		@media (max-width: 768px) {
 			font-size: 3em;
 		}
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+	ul {
+		list-style: none;
 	}
 
 	.txt {

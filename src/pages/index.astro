@@ -1,6 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Main from "../components/Main";
+import Mv from "../components/Mv.astro";
+import LatestRelease from "../components/LatestRelease.astro";
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+
+const starIcon = icon(faYoutube);
 
 const videos = [
 	{ url: "https://www.youtube.com/embed/waDsv3p9h1E" },
@@ -45,7 +52,9 @@ const live = [
 	<div class="header">
 		<h1><a href="/"><img src="/img/logo.png" alt="" /></a></h1>
 	</div>
-	<Main client:only="react" />
+	<!-- <Main client:only="react" />-->
+	<Mv />
+	<LatestRelease />
 	<div class="video" id="video">
 		<h2>Video:</h2>
 		<div class="video__wrapper">

@@ -1,0 +1,159 @@
+---
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faSpotify, faApple } from "@fortawesome/free-brands-svg-icons";
+const latestRelease = ["/img/sm-cover.png", "Secret Moment", "EXPCTR"];
+---
+
+<section id="latestRelease">
+    <div class="cInner">
+        <h2>Latest Release:</h2>
+        <div class="box__wrapper">
+            <div class="box__upper">
+                <div class="img"><img src="/img/sm-cover.png" alt="" /></div>
+                <div class="txt">
+                    <h3>Secret Moment</h3>
+                    <p>EXPCTR</p>
+                </div>
+            </div>
+            <div class="box__below">
+                <ul>
+                    <li>
+                        <a
+                            href="https://open.spotify.com/intl-ja/album/05AIAvSMORxx1CEqH0NVH5?si=A4ZzgVm_QlWNO0eaa2Um6Q"
+                            target="_blank"
+                            ><img src="/img/img_spotify.png" alt="" /></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://music.apple.com/jp/album/secret-moment-single/1783089025"
+                            target="_blank"
+                            ><img src="/img/img_applemusic.png" alt="" /></a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://friendship.lnk.to/SecretMoment_EXPCTR"
+                            target="_blank">More</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section#latestRelease {
+        width: 90%;
+        margin: 0 auto;
+        padding: 80px 0 80px;
+        color: #fff;
+        div.cInner {
+            @media (max-width: 768px) {
+                margin: 0 20px;
+            }
+            h2 {
+                font-weight: 100;
+                margin-bottom: 80px;
+                @media (max-width: 768px) {
+                    font-size: 28px;
+                }
+            }
+            div.box__wrapper {
+                background: #2a2a2a;
+                border-radius: 25px;
+                position: relative;
+                padding: 30px 30px 20px;
+                max-width: 780px;
+                margin: 0 auto;
+                @media (max-width: 768px) {
+                    padding: 20px 20px 10px;
+                    border-radius: 10px;
+                }
+                div.box__upper {
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 30px;
+                    max-height: 160px;
+                    @media (max-width: 768px) {
+                        max-height: 90px;
+                        gap: 20px;
+                    }
+                    div.img {
+                        max-width: 220px;
+                        transform: translateY(-80px);
+                        @media (max-width: 768px) {
+                            max-width: 160px;
+                        }
+                        img {
+                            border-radius: 25px;
+                            @media (max-width: 768px) {
+                                border-radius: 10px;
+                            }
+                        }
+                    }
+                    div.txt {
+                        h3 {
+                            margin-bottom: 10px;
+                            font-size: 28px;
+                            font-weight: 500;
+                            @media (max-width: 768px) {
+                                font-size: 22px;
+                            }
+                        }
+                        p {
+                            color: #959595;
+                            font-size: 20px;
+                            font-weight: 300;
+                            @media (max-width: 768px) {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+                div.box__below {
+                    ul {
+                        display: flex;
+                        background: #161616;
+                        border-radius: 50px;
+                        li {
+                            width: 33%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            &:not(:last-child) {
+                                padding: 15px 0;
+                                a {
+                                    border-right: 2px solid #fff;
+                                }
+                            }
+                            a {
+                                width: 100%;
+                                display: flex;
+                                justify-content: center;
+                                color: #fff;
+                                align-items: center;
+                                font-size: 24px;
+                                transition: all 0.3s;
+                                @media (max-width: 768px) {
+                                    font-size: 18px;
+                                }
+                                &:hover {
+                                    opacity: 0.8;
+                                }
+                                img {
+                                    max-width: 120px;
+                                    @media (max-width: 768px) {
+                                        max-width: 60px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>
