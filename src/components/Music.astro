@@ -1,0 +1,242 @@
+---
+const music = [
+    {
+        url: "https://friendship.lnk.to/SecretMoment_EXPCTR",
+        ttl: "Secret Moment",
+        img: "/img/sm-cover.png",
+    },
+    {
+        url: "https://friendship.lnk.to/Undress",
+        ttl: "Undress",
+        img: "/img/undress-cover.png",
+    },
+    {
+        url: "https://friendship.lnk.to/DISPLAY_THREE",
+        ttl: "DISPLAY THREE",
+        img: "/img/d3-cover.png",
+    },
+    {
+        url: "https://friendship.lnk.to/DISPLAY_TWO",
+        ttl: "DISPLAY TWO",
+        img: "/img/d2-cover.jpg",
+    },
+    {
+        url: "https://open.spotify.com/intl-ja/album/5sE4GGk3lYdOq8U4VIT9Os?si=3WcwSDRbQXau9cNhLbP_Zg",
+        ttl: "DISPLAY ONE",
+        img: "/img/d1-cover.png",
+    },
+    {
+        url: "https://open.spotify.com/intl-ja/album/3f4pAZZTsBehwuYrAO6G9g?si=Ff0ZTsVfQmeYpRvw_wKVlg",
+        ttl: "BLACKBOX",
+        img: "/img/bb-cover.jpg",
+    },
+];
+---
+
+<section id="music">
+    <div class="cInner">
+        <h2>music:</h2>
+        <div class="swiper swiper-music">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {
+                    music.map((item) => (
+                        <div class="swiper-slide">
+                            <div class="box__wrapper">
+                                <div class="box__upper">
+                                    <div class="img">
+                                        <img src={item.img} alt="" />
+                                    </div>
+                                    <div class="txt">
+                                        <h3 set:text={item.ttl} />
+                                        <p>EXPCTR</p>
+                                        <a
+                                            href={item.url}
+                                            class="btn"
+                                            target="_blank"
+                                        >
+                                            Play
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+        <!-- If we need navigation buttons -->
+        <div class="button__wrapper">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import Swiper from "swiper";
+    import { Navigation, Autoplay, EffectFade } from "swiper/modules";
+    import "swiper/css/bundle";
+    export const swiperConfig = {
+        modules: [Navigation],
+        loop: true,
+
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        paginationClickable: true,
+        spaceBetween: 10,
+        breakpoints: {
+            320: {
+                slidesPerView: 1.3,
+                spaceBetween: 10,
+            },
+            768: {
+                slidesPerView: 1.2,
+                spaceBetween: 10,
+            },
+            1024: {
+                slidesPerView: 2.3,
+                spaceBetween: 10,
+            },
+        },
+    };
+
+    const swiper = new Swiper(".swiper-music", swiperConfig);
+</script>
+
+<style lang="scss">
+    section#music {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0px 0 80px;
+        color: #fff;
+        @media (max-width: 768px) {
+            width: 100%;
+            padding: 0px 0 80px;
+        }
+        div.cInner {
+            position: relative;
+            h2 {
+                margin-bottom: 20px;
+                @media (max-width: 768px) {
+                    font-size: 28px;
+                }
+            }
+            div.swiper {
+                position: relative;
+                div.swiper-wrapper {
+                    div.swiper-slide {
+                        div.box__wrapper {
+                            background: #2a2a2a;
+                            border-radius: 25px;
+                            position: relative;
+                            padding: 0;
+                            max-width: 780px;
+                            margin: 0 auto;
+                            @media (max-width: 768px) {
+                                border-radius: 10px;
+                            }
+                            div.box__upper {
+                                display: flex;
+                                justify-content: flex-start;
+                                gap: 30px;
+
+                                @media (max-width: 768px) {
+                                    gap: 20px;
+                                }
+                                div.img {
+                                    max-width: 220px;
+                                    @media (max-width: 768px) {
+                                        max-width: 160px;
+                                    }
+                                    img {
+                                        border-radius: 25px 0 0px 25px;
+                                        @media (max-width: 768px) {
+                                            border-radius: 15px 0 0px 15px;
+                                        }
+                                    }
+                                }
+                                div.txt {
+                                    padding: 20px 0;
+                                    h3 {
+                                        margin-bottom: 10px;
+                                        font-size: 24px;
+                                        font-weight: 500;
+                                        @media (max-width: 768px) {
+                                            font-size: 18px;
+                                            margin-bottom: 5px;
+                                        }
+                                    }
+                                    p {
+                                        color: #959595;
+                                        font-size: 18px;
+                                        font-weight: 300;
+                                        margin-bottom: 10px;
+                                        @media (max-width: 768px) {
+                                            margin-bottom: 10px;
+                                            font-size: 14px;
+                                        }
+                                    }
+                                    .btn {
+                                        display: block;
+                                        font-size: 20px;
+                                        font-weight: 500;
+                                        text-decoration: none;
+                                        border: 1.5px solid #fff;
+                                        text-align: center;
+                                        border-radius: 50px;
+                                        width: fit-content;
+                                        padding: 3px 30px;
+                                        transition: all 0.3s;
+                                        @media (max-width: 768px) {
+                                            font-size: 16px;
+                                        }
+                                        &:hover {
+                                            background: #fff;
+                                            color: #959595;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .button__wrapper {
+                position: absolute;
+                top: 30px;
+                right: 0;
+                @media (max-width: 768px) {
+                    top: 20px;
+                }
+                div.swiper-button-prev {
+                    top: 0;
+                    right: 60px;
+                    left: auto;
+                    width: 30px;
+                    height: 30px;
+                    border: 2px solid #fff;
+                    border-radius: 50px;
+                    @media (max-width: 768px) {
+                        right: 50px;
+                    }
+                }
+                div.swiper-button-next {
+                    top: 0;
+                    width: 30px;
+                    height: 30px;
+                    border: 2px solid #fff;
+                    border-radius: 50px;
+                }
+                .swiper-button-next:after,
+                .swiper-button-prev:after {
+                    font-size: 14px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+</style>

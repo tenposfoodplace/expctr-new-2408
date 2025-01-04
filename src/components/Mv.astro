@@ -1,9 +1,92 @@
-<div id="mv"></div>
+---
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import {
+    faYoutube,
+    faInstagram,
+    faTiktok,
+    faSpotify,
+    faApple,
+    faXTwitter,
+    faBandcamp,
+} from "@fortawesome/free-brands-svg-icons";
+
+const youtube = icon(faYoutube);
+const instagram = icon(faInstagram);
+const tiktok = icon(faTiktok);
+const spotify = icon(faSpotify);
+const apple = icon(faApple);
+const x = icon(faXTwitter);
+const bandcamp = icon(faBandcamp);
+
+const links = [
+    {
+        icon: youtube,
+        url: "https://www.youtube.com/c/EXPCTR",
+    },
+
+    {
+        icon: spotify,
+        url: "https://open.spotify.com/artist/3ipgUyTWKYk6KAm91kTdrk?si=1NnDDPcJQDChMcWpk-qSxA",
+    },
+    {
+        icon: apple,
+        url: "https://music.apple.com/jp/artist/expctr/1438272153",
+    },
+    {
+        icon: x,
+        url: "https://twitter.com/expctr__",
+    },
+    {
+        icon: instagram,
+        url: "http://instagram.com/expctr",
+    },
+    {
+        icon: tiktok,
+        url: "https://www.tiktok.com/@expctr",
+    },
+    {
+        icon: bandcamp,
+        url: "https://expctr.bandcamp.com/releases",
+    },
+];
+---
+
+<div id="mv">
+    <ul>
+        {
+            links.map((item) => (
+                <li>
+                    <a href={item.url} target="_blank">
+                        <Fragment set:html={item.icon.html} />
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
 
 <style lang="scss">
     #mv {
         width: 100%;
         height: 600px;
         background: url("/img/img_headshot.png") center center / cover no-repeat;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        ul {
+            display: flex;
+            gap: 30px;
+            li {
+                a {
+                    color: #fff;
+                    font-size: 26px;
+                    transition: all 0.3s;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
     }
 </style>

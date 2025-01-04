@@ -2,7 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Main from "../components/Main";
 import Mv from "../components/Mv.astro";
+import MusicVideo from "../components/MusicVideo.astro";
 import LatestRelease from "../components/LatestRelease.astro";
+import Music from "../components/Music.astro";
 import { icon } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
@@ -55,90 +57,8 @@ const live = [
 	<!-- <Main client:only="react" />-->
 	<Mv />
 	<LatestRelease />
-	<div class="video" id="video">
-		<h2>Video:</h2>
-		<div class="video__wrapper">
-			{
-				videos.map((video) => (
-					<div class="video-item">
-						<iframe
-							src={video.url}
-							title="YouTube video player"
-							frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							referrerpolicy="strict-origin-when-cross-origin"
-							allowfullscreen
-						/>
-					</div>
-				))
-			}
-		</div>
-		<div class="merch" id="merce">
-			<h2>Merch:</h2>
-			<div class="merch_wrapper">
-				<ul>
-					{
-						merches.map((merch) => (
-							<li>
-								<iframe
-									frameborder="0"
-									height="380"
-									width="220"
-									src={merch.url}
-								/>
-							</li>
-						))
-					}
-				</ul>
-			</div>
-		</div>
-		<div class="live" id="live">
-			<h2>Live:</h2>
-			<div class="live__wrapper">
-				<ul class="live-list">
-					{
-						live.map((el) => (
-							<li class="live-item">
-								<div set:html={el.date} class="date" />
-								<div set:html={el.ttl} class="ttl" />
-								<div>
-									<img src={el.img} alt="" class="img" />
-								</div>
-								<div set:html={el.txt} class="txt" />
-							</li>
-						))
-					}
-				</ul>
-			</div>
-		</div>
-		<div class="contact" id="contact">
-			<h2>Contact:</h2>
-			<div class="contact__wrapper">
-				<a href="mailto:expctrtokyo@gmail.com">expctrtokyo@gmail.com</a>
-			</div>
-			<div class="sns__wrapper">
-				<ul>
-					<li>
-						<a href="http://instagram.com/expctr" target="_blank"
-							>Instagram</a
-						>
-					</li>
-					<li>
-						<a href="http://twitter.com/expctr__" target="_blank"
-							>X</a
-						>
-					</li>
-					<li>
-						<a
-							href="https://www.youtube.com/@EXPCTR"
-							target="_blank">Youtube</a
-						>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
+	<MusicVideo />
+	<Music />
 	<style lang="scss">
 		.video {
 			width: 90%;
