@@ -1,154 +1,58 @@
 ---
 const merches = [
-    { url: "https://www.youtube.com/embed/waDsv3p9h1E" },
     {
-        url: "https://www.youtube.com/embed/yuFCkqAJOfA?si=UWettKtT8dBtWDZW",
+        url: "https://expctr.base.shop/items/81366766/widget",
     },
-    {
-        url: "https://www.youtube.com/embed/q6qA1ny8cHw?si=YcDDw_x3gSFylEYJ",
-    },
-    {
-        url: "https://www.youtube.com/embed/-UzlWgpNVRY?si=lUiQyv2vj2-0g9e6",
-    },
-    { url: "https://www.youtube.com/embed/c6s1kMBTYQ0?si=2D3RWCP_6-A5l17S" },
-    {
-        url: "https://www.youtube.com/embed/ZyEUFDXsJNk?si=1pZ-mB0EuqzEaq_0",
-    },
-    {
-        url: "https://www.youtube.com/embed/aJddG7aVwbY?si=kKX7yRtEmuM7FD6J",
-    },
+    { url: "https://expctr.base.shop/items/81366576/widget" },
+    { url: "https://expctr.base.shop/items/79215817/widget" },
 ];
 ---
 
-<section id="merch">
-    <div class="cInner">
-        <h2>Merches:</h2>
-        <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                {
-                    merches.map((video) => (
-                        <div class="swiper-slide">
-                            <div class="video-item">
-                                <iframe
-                                    src={video.url}
-                                    title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allowfullscreen
-                                />
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-        <!-- If we need navigation buttons -->
-        <div class="button__wrapper">
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
+<div class="merch" id="merce">
+    <h2>Merch:</h2>
+    <div class="merch_wrapper">
+        <ul>
+            {
+                merches.map((merch) => (
+                    <li>
+                        <iframe
+                            frameborder="0"
+                            height="380"
+                            width="220"
+                            src={merch.url}
+                        />
+                    </li>
+                ))
+            }
+        </ul>
     </div>
-</section>
-
-<script>
-    import Swiper from "swiper";
-    import { Navigation, Autoplay, EffectFade } from "swiper/modules";
-    import "swiper/css/bundle";
-    export const swiperConfig = {
-        modules: [Navigation],
-        loop: true,
-
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        paginationClickable: true,
-        spaceBetween: 10,
-        breakpoints: {
-            320: {
-                slidesPerView: 1.3,
-                spaceBetween: 10,
-            },
-            768: {
-                slidesPerView: 1.2,
-                spaceBetween: 10,
-            },
-            1024: {
-                slidesPerView: 2.3,
-                spaceBetween: 10,
-            },
-        },
-    };
-
-    const swiper = new Swiper(".swiper", swiperConfig);
-</script>
+</div>
 
 <style lang="scss">
-    section#merch {
+    .merch {
         width: 90%;
         margin: 0 auto;
-        padding: 0px 0 80px;
+        padding: 0 0 80px;
         color: #fff;
-        @media (max-width: 768px) {
-            width: 100%;
-            padding: 0px 0 80px;
-        }
-        div.cInner {
-            position: relative;
-            h2 {
-                margin-bottom: 20px;
+        .merch_wrapper {
+            ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+                list-style: none;
+                gap: 10px;
                 @media (max-width: 768px) {
-                    font-size: 28px;
+                    flex-direction: column;
                 }
-            }
-            div.swiper {
-                position: relative;
-                div.swiper-wrapper {
-                    div.swiper-slide {
-                        div.video-item {
-                            width: 100%;
-                            aspect-ratio: 16 / 9;
-                            iframe {
-                                width: 100%;
-                                height: 100%;
-                            }
-                        }
-                    }
-                }
-            }
-            .button__wrapper {
-                position: absolute;
-                top: 30px;
-                right: 0;
-                @media (max-width: 768px) {
-                    top: 20px;
-                }
-                div.swiper-button-prev {
-                    top: 0;
-                    right: 60px;
-                    left: auto;
-                    width: 30px;
-                    height: 30px;
-                    border: 2px solid #fff;
-                    border-radius: 50px;
+                li {
+                    width: 24%;
                     @media (max-width: 768px) {
-                        right: 50px;
+                        width: 100%;
                     }
-                }
-                div.swiper-button-next {
-                    top: 0;
-                    width: 30px;
-                    height: 30px;
-                    border: 2px solid #fff;
-                    border-radius: 50px;
-                }
-                .swiper-button-next:after,
-                .swiper-button-prev:after {
-                    font-size: 14px;
-                    color: #fff;
+                    iframe {
+                        width: 100%;
+                    }
                 }
             }
         }
