@@ -17,3 +17,6 @@ export const getMusicVideo = async (queries: MicroCMSQueries) => {
     return await client.get({ endpoint: "musicvideo", queries });
 }
 
+export const getNews = async (queries: MicroCMSQueries) => {
+    return await client.get({ endpoint: "news", queries })
+}

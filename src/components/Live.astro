@@ -1,4 +1,10 @@
 ---
+import { getNews } from "../libs/microcms";
+
+const response = await getNews({
+    fields: ["title", "content", "image", "publishedAt", "category"],
+});
+
 const live = [
     {
         date: "01/17/2025(fri)",
@@ -11,18 +17,17 @@ const live = [
 ---
 
 <div class="live" id="live">
-    <h2>Live:</h2>
+    <h2>Live & Media:</h2>
     <div class="live__wrapper">
         <ul class="live-list">
             {
-                live.map((el) => (
+                response.contents.map((el) => (
                     <li class="live-item">
-                        <div set:html={el.date} class="date" />
-                        <div set:html={el.ttl} class="ttl" />
+                        <div set:html={el.category} class="ttl" />
                         <div>
-                            <img src={el.img} alt="" class="img" />
+                            <img src={el.image.url} alt="" class="img" />
                         </div>
-                        <div set:html={el.txt} class="txt" />
+                        <div set:html={el.content} class="txt" />
                     </li>
                 ))
             }
@@ -50,16 +55,25 @@ const live = [
                 display: flex;
                 list-style: none;
                 flex-wrap: wrap;
+                gap: 10px;
                 li.live-item {
                     width: 25%;
+                    background: #2a2a2a;
+                    padding: 20px 15px;
+                    border-radius: 15px;
                     @media (max-width: 768px) {
                         width: 100%;
                     }
                     div.date {
                     }
                     div.ttl {
-                        font-size: 18px;
-                        font-weight: bold;
+                        font-size: 14px;
+                        font-weight: 500;
+                        background: #fff;
+                        color: #2a2a2a;
+                        width: fit-content;
+                        padding: 1px 10px;
+                        border-radius: 5px;
                     }
                     div {
                         margin-bottom: 20px;
@@ -69,6 +83,7 @@ const live = [
                     }
                     div.txt {
                         font-size: 16px;
+                        font-weight: 500;
                     }
                 }
             }
